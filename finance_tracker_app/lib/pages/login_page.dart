@@ -51,10 +51,66 @@ class LoginPage extends StatelessWidget {
                     controller: wiseIDController,
                     hintText: "Wise ID",
                     obscureText: false,
+                    onSuffixTap: () {
+                      print("Proceed");
+                    },
                     suffixIcon: Icons.arrow_forward_ios_rounded,
                   ),
 
+                  SizedBox(height: 20),
+
                   // Keep Signed In check box
+                  Text(
+                    "Keep me signed in",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Color(0xFF7f7f7f),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+
+                  SizedBox(height: 20),
+                  Divider(
+                    color: Color.fromARGB(20, 0, 0, 0),
+                    indent: 50,
+                    endIndent: 50,
+                  ),
+                  SizedBox(height: 20),
+
+                  // Forgot WiseID / Password text
+                  GestureDetector(
+                    onTap: () {
+                      print("Forgot ID or password");
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Forgot Wise ID or password?",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 18),
+                        ),
+                        Icon(
+                          Icons.arrow_outward_rounded,
+                          size: 20,
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(height: 30),
+
+                  // Create WiseID text
+                  GestureDetector(
+                    onTap: () {
+                      print("Create Wise ID");
+                    },
+                    child: Text(
+                      "Create Wise ID",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    ),
+                  )
                 ],
               ),
             ),

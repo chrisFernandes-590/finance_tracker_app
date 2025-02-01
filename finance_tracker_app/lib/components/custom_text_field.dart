@@ -6,6 +6,7 @@ class CustomTextField extends StatelessWidget {
   final bool obscureText;
   final IconData? suffixIcon;
   final Color? baseColor;
+  final VoidCallback? onSuffixTap;
 
   const CustomTextField({
     super.key,
@@ -14,6 +15,7 @@ class CustomTextField extends StatelessWidget {
     required this.obscureText,
     this.suffixIcon,
     this.baseColor,
+    this.onSuffixTap,
   });
 
   @override
@@ -23,16 +25,25 @@ class CustomTextField extends StatelessWidget {
         obscureText: obscureText,
         decoration: InputDecoration(
           suffixIcon: suffixIcon != null
-              ? Icon(
-                  suffixIcon,
-                  color: baseColor ?? Color(0xFF6D6D6D),
+              ? GestureDetector(
+                  onTap: onSuffixTap,
+                  child: Icon(
+                    suffixIcon,
+                    color: baseColor ?? Color(0xFF6D6D6D),
+                  ),
                 )
               : null,
           enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: baseColor ?? Color(0xFF6D6D6D)),
+              borderSide: BorderSide(
+                color: baseColor ?? Color(0xFF6D6D6D),
+                width: 1.5,
+              ),
               borderRadius: BorderRadius.circular(8)),
           focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1)),
+              borderSide: BorderSide(
+            color: Colors.black,
+            width: 1.5,
+          )),
           hintText: hintText,
           hintStyle: TextStyle(
               fontSize: 18,
